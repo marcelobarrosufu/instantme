@@ -37,7 +37,7 @@ Donate
 
 InstantME uses Inneractive banners, displayed in the middle of photo feed. Please, do not remove this feature when creating clones and keep the Inneractive tracking in jad file. It is the main way InstantME can raise some money for machine upgrades, participation in Nokia events and web hosting providers. 
 
-Or you can make a [donation vi PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LLZKNXT92KFQQ&lc=BR&item_name=InstantME&item_number=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted).
+Or you can make a [donation via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LLZKNXT92KFQQ&lc=BR&item_name=InstantME&item_number=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted).
 
 Security
 --------
