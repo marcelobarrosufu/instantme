@@ -56,6 +56,11 @@ External java classes used
 * Nokia BackStack class
 * Nokia DataModel class for Worpress project
 
+Compiling
+---------
+
+This code was developed using [NetBeans IDE](http://netbeans.org/downloads/) and [Nokia SDK 2.0 for Java](https://www.developer.nokia.com/info/sw.nokia.com/id/d312c223-c68a-447e-b295-c3a9ebc4b630/Nokia_SDK_2.0_for_Java_offline_installer_win.html).
+
 License
 -------
 
