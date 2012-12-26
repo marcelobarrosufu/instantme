@@ -16,7 +16,7 @@ Due to Instragram API rules, this application has some restrictions:
 Some features available:
 
 * Browse your Instagram feed
-* Browser your followers and people you are following
+* Browse your followers and people you are following
 * Post/Delete comments and likes
 
 Contribute
@@ -35,7 +35,7 @@ You can contribute to this project in several ways:
 Donate
 ------
 
-InstantME uses Inneractive banners, displayed in the middle of photo feed. Please, do not remove this feature when creating clones and keep the Inneractive tracking in jad file. It is the main way InstantME can raise some money for machine upgrades, participation in Nokia events and web hosting providers. 
+InstantME uses Inneractive banners, displayed in the middle of photo feed. Please, do not remove this feature when creating clones and keep the Inneractive tracking in jad file. It is the main way InstantME can raise some money for machine upgrades, participation in Nokia events and web hosting providers. This application is developed in my free time and it is not supported by any company.
 
 Or you can make a [donation via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LLZKNXT92KFQQ&lc=BR&item_name=InstantME&item_number=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted).
 
