@@ -63,5 +63,6 @@ This code was developed using [NetBeans IDE](http://netbeans.org/downloads/) and
 
 License
 -------
-
-This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
+<p>Copyright (c) Marcelo Barros de Almeida. 
+<p>Email: marcelobarrosalmeida at_server gmail.com.
+<p>This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
