@@ -9,17 +9,17 @@
  */
 package com.instantme.forms;
 
-import com.instantme.util.BackStack;
-import com.instantme.model.CommentEntryModel;
-import com.instantme.util.DisplaySpecs;
-import com.instantme.util.IAnimation;
 import com.instantme.api.InstagramAPI;
-import com.instantme.entries.PhotoEntry;
-import com.instantme.util.TaskHelper;
 import com.instantme.entries.CommentEntry;
+import com.instantme.entries.PhotoEntry;
 import com.instantme.entries.TaskEntry;
 import com.instantme.entries.WaitItem;
 import com.instantme.locales.Locale;
+import com.instantme.model.CommentEntryModel;
+import com.instantme.util.BackStack;
+import com.instantme.util.DisplaySpecs;
+import com.instantme.util.IAnimation;
+import com.instantme.util.TaskHelper;
 import java.io.IOException;
 import java.util.Vector;
 import javax.microedition.lcdui.Alert;

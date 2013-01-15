@@ -94,6 +94,9 @@ public class Locale {
     public static final int SPLASH_TOP = 79;
     public static final int SPLASH_BOTTOM = 80;
     public static final int OPEN_MENU = 81;
+    public static final int HELP_MENU = 82;
+    public static final int HELP = 83;
+    public static final int HELP_TEXT = 84;
     
     private Locale() {
         String locale;

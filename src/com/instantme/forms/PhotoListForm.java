@@ -36,20 +36,25 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.Item;
 import javax.microedition.lcdui.ItemCommandListener;
 import javax.microedition.lcdui.StringItem;
+import javax.microedition.lcdui.TextBox;
+import javax.microedition.lcdui.TextField;
 //import com.nokia.mid.ui.LCDUIUtil;
 
 public class PhotoListForm extends Form implements Runnable, IAnimation, IDetails, ItemCommandListener, CommandListener {
 
     private PhotoEntryModel model;
-    private Command updateCommand;
-    private Command olderCommand;
-    private Command newerCommand;
-    private Command exitCommand;
-    private Command loginCommand;
-    private Command friendsCommand;
-    private Command aboutCommand;
-    private Command meCommand;
-    private Command adCommand;
+    private TextBox helpBox = null;
+    private Command updateCommand = new Command(Locale.getInst().getStr(Locale.UPDATE_MENU), Command.OK, 0);
+    private Command olderCommand = new Command(Locale.getInst().getStr(Locale.OLDER_MENU), Command.ITEM, 1);
+    private Command newerCommand = new Command(Locale.getInst().getStr(Locale.NEWER_MENU), Command.ITEM, 2);
+    private Command friendsCommand = new Command(Locale.getInst().getStr(Locale.FRIENDS_MENU), Command.ITEM, 3);
+    private Command loginCommand = new Command(Locale.getInst().getStr(Locale.LOGIN_MENU), Command.ITEM, 4);
+    private Command meCommand = new Command(Locale.getInst().getStr(Locale.ME_MENU), Command.ITEM, 5);
+    private Command aboutCommand= new Command(Locale.getInst().getStr(Locale.ABOUT_MENU), Command.ITEM, 6);
+    private Command exitCommand = new Command(Locale.getInst().getStr(Locale.EXIT_MENU), Command.EXIT, 7);
+    private Command helpCommand = new Command(Locale.getInst().getStr(Locale.HELP_MENU), Command.HELP, 8);
+    private Command adCommand = new Command(Locale.getInst().getStr(Locale.OPEN_MENU), Command.ITEM, 0);
+    private Command backCommand = new Command(Locale.getInst().getStr(Locale.BACK_MENU), Command.BACK, 0);
     //private Alert alert;
     private WaitItem waitAnim;
     private TaskHelper tasks = null;
@@ -64,16 +69,6 @@ public class PhotoListForm extends Form implements Runnable, IAnimation, IDetail
         super(title);
         model = new PhotoEntryModel();
 
-        updateCommand = new Command(Locale.getInst().getStr(Locale.UPDATE_MENU), Command.OK, 0);
-        olderCommand = new Command(Locale.getInst().getStr(Locale.OLDER_MENU), Command.ITEM, 1);
-        newerCommand = new Command(Locale.getInst().getStr(Locale.NEWER_MENU), Command.ITEM, 2);
-        friendsCommand = new Command(Locale.getInst().getStr(Locale.FRIENDS_MENU), Command.ITEM, 3);
-        loginCommand = new Command(Locale.getInst().getStr(Locale.LOGIN_MENU), Command.ITEM, 4);
-        meCommand = new Command(Locale.getInst().getStr(Locale.ME_MENU), Command.ITEM, 5);
-        aboutCommand = new Command(Locale.getInst().getStr(Locale.ABOUT_MENU), Command.ITEM, 6);
-        exitCommand = new Command(Locale.getInst().getStr(Locale.EXIT_MENU), Command.EXIT, 7);
-        adCommand = new Command(Locale.getInst().getStr(Locale.OPEN_MENU), Command.ITEM, 0);
-
         addCommand(updateCommand);
         addCommand(olderCommand);
         addCommand(newerCommand);
@@ -82,6 +77,7 @@ public class PhotoListForm extends Form implements Runnable, IAnimation, IDetail
         addCommand(loginCommand);
         addCommand(aboutCommand);
         addCommand(exitCommand);
+        addCommand(helpCommand);
 
         setCommandListener(this);
 
@@ -180,12 +176,22 @@ public class PhotoListForm extends Form implements Runnable, IAnimation, IDetail
             ((InstantME) bs.getRunningMidlet()).exitMIDlet();
         } else if (c == aboutCommand) {
             showAlert(Locale.getInst().getStr(Locale.ABOUT), Locale.getInst().getStr(Locale.SUPPORT));
+        } else if (c == backCommand) {
+            bs.back();
         } else if (tasks.isRunning()) {
             showAlert(Locale.getInst().getStr(Locale.WAIT), Locale.getInst().getStr(Locale.WAIT_OPERATION));
         } else {
             if (c == loginCommand) {
                 LoginForm f = new LoginForm();
                 bs.forward(f);
+            } else if (c == helpCommand) {
+                if (helpBox == null) {
+                    helpBox = new TextBox(Locale.getInst().getStr(Locale.HELP), Locale.getInst().getStr(Locale.HELP_TEXT), 1024, TextField.UNEDITABLE);
+                    helpBox.addCommand(backCommand);
+                    helpBox.setCommandListener(this);
+                    helpBox.insert("",0);
+                }
+                bs.forward(helpBox);                
             } else {
                 InstagramAPI oai = InstagramAPI.getInstance();
                 if (!oai.isLogged()) {

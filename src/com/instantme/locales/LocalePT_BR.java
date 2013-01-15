@@ -16,7 +16,7 @@ public class LocalePT_BR implements ILocale {
         "voltar", 
         "sair",
         "sobre",
-        "InstantME V1.0.0. Desenolvido por Shining Bits.\nSuporte: support@shiningbits.com",
+        "InstantME V1.0.1. Desenvolvido por Shining Bits.\nSuporte: support@shiningbits.com",
         "atualizar",
         "Aguarde",
         "Por favor, aguarde o final da operação.",
@@ -43,7 +43,7 @@ public class LocalePT_BR implements ILocale {
         "Esse aplicativo acessa suas fotos, comentários, curtidas e amigos em seu nome mas" +
             " seu usuário e senha não serão armazenados neste telefone." +
             "\nVocê também deve ter uma conta Instagram válida antes de usar este programa. " +
-            "Use um telefone Android ou iPhone para criá-la.",
+            "Use um telefone Android ou iPhone/iPad para criá-la.",
         "cancelar",
         "logar",
         "Erro",
@@ -96,8 +96,15 @@ public class LocalePT_BR implements ILocale {
         "Analisando ...",
         "InstantME",
         "Shining Bits",
-        "abrir"
-            
+        "abrir",
+        "ajuda",
+        "Ajuda",
+        "Você deve ter uma conta Instagram válida para usar este aplicativo. " +
+            "Ela pode ser criada através de um telefone Android ou iPhone.\n\n" +
+            "Com sua informação de conta, use o menu 'logar' para entrar na rede do Instagram.\n\n" +
+            "Você pode navegar usando as opções 'mais antigas' e 'mais novas' e ver os seguidores/seguindo " +
+            "usando a opção 'amigos'.\n\nOs detalhes da sua conta podem ser vistos através da opção 'eu'.\n\n" +
+            "Finalmente, a opção 'atualizar' mostra o que existe de mais novo na sua linha do tempo."
         };
     
     public String getStr(int id) {
