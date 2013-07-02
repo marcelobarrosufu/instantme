@@ -638,9 +638,41 @@ public class InstagramAPI {
     
     private void updateCookies(HttpConnection connection) throws IOException {
         
+        /*
+         When we have more than one header, for instance, two 'Set-Cookie' headers,
+         they are concatenated using ",", not ";". This generates a parser error
+         since this program is expecting a string like "key=value;key=value;..."
+          
+         It is not possible to know where the "," was added since it is a valid
+         character for values. The dirt fix below will solve the problem while
+         instagram does not change the values inside cookies
+         */
         String cookieHeader = connection.getHeaderField("Set-Cookie");
+        int fix = cookieHeader.indexOf("sessionid", 0);
+        if(fix >= 0) {
+            cookieHeader = cookieHeader.substring(0, fix) + ";" + cookieHeader.substring(fix);
+        }
         
-        if(cookieHeader != null) {
+        /*
+        // does not work too, header are concatenated as well
+        String cookieHeader = "";
+        int index = 0;
+        while(connection.getHeaderFieldKey(index) != null) {
+            String headerName = connection.getHeaderFieldKey(index);
+            headerName = headerName.toLowerCase();
+            if(headerName.startsWith("set-cookie")) {
+                if(cookieHeader.length() > 0) {
+                    cookieHeader = cookieHeader + ";" + connection.getHeaderField(index);
+                }
+                else {
+                    cookieHeader = connection.getHeaderField(index);
+                }
+            }
+            index++;
+        }  
+        */
+    
+       if(cookieHeader != null) {
             if(cookieHeader.length() > 0) {
                 //println(cookieHeader);
                 Vector cookieList = split(cookieHeader,";");

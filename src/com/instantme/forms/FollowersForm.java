@@ -17,7 +17,7 @@ import com.instantme.model.UserEntryModel;
 import com.instantme.items.CustomStringItem;
 import com.instantme.entries.UserEntry;
 import com.instantme.entries.TaskEntry;
-import com.instantme.entries.WaitItem;
+import com.instantme.items.WaitItem;
 import com.instantme.locales.Locale;
 import javax.microedition.lcdui.Alert;
 import javax.microedition.lcdui.AlertType;

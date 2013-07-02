@@ -7,7 +7,7 @@
     http://creativecommons.org/licenses/by-sa/3.0/
  
  */
-package com.instantme.entries;
+package com.instantme.items;
 
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.ImageItem;

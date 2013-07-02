@@ -13,7 +13,7 @@ import com.instantme.api.InstagramAPI;
 import com.instantme.entries.CommentEntry;
 import com.instantme.entries.PhotoEntry;
 import com.instantme.entries.TaskEntry;
-import com.instantme.entries.WaitItem;
+import com.instantme.items.WaitItem;
 import com.instantme.locales.Locale;
 import com.instantme.model.CommentEntryModel;
 import com.instantme.util.BackStack;

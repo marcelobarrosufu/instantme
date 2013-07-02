@@ -16,7 +16,7 @@ public class LocalePT_BR implements ILocale {
         "voltar", 
         "sair",
         "sobre",
-        "InstantME V1.0.1. Desenvolvido por Shining Bits.\nSuporte: support@shiningbits.com",
+        "InstantME V1.0.3. Desenvolvido por Shining Bits.\nSuporte: support@shiningbits.com",
         "atualizar",
         "Aguarde",
         "Por favor, aguarde o final da operação.",
@@ -39,7 +39,7 @@ public class LocalePT_BR implements ILocale {
         "d",    
         "Usuário",
         "Senha",
-        "Atenção",
+        "Política de Privacidade",
         "Esse aplicativo acessa suas fotos, comentários, curtidas e amigos em seu nome mas" +
             " seu usuário e senha não serão armazenados neste telefone." +
             "\nVocê também deve ter uma conta Instagram válida antes de usar este programa. " +

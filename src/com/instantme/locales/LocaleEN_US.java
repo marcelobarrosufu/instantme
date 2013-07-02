@@ -16,7 +16,7 @@ public class LocaleEN_US implements ILocale {
         "back", 
         "exit",
         "about",
-        "InstantME V1.0.1. Developed by Shining Bits.\nSupport: support@shiningbits.com",
+        "InstantME V1.0.3. Developed by Shining Bits.\nSupport: support@shiningbits.com",
         "update",
         "Wait",
         "Please, wait while the current operation is executed.",
@@ -39,7 +39,7 @@ public class LocaleEN_US implements ILocale {
         "d",
         "Username",
         "Password",
-        "Disclaimer",
+        "Privacy Policy",
         "This application accesses your photos, comments, likes and friends on your behalf." +
             " Your login credentials will not be stored on this phone." +
             "\nYou must have a valid Instagram account before using this program. " +

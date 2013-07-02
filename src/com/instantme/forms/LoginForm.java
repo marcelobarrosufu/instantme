@@ -7,7 +7,7 @@ import com.instantme.util.IAnimation;
 import com.instantme.api.InstagramAPI;
 import com.instantme.util.TaskHelper;
 import com.instantme.entries.TaskEntry;
-import com.instantme.entries.WaitItem;
+import com.instantme.items.WaitItem;
 import com.instantme.locales.Locale;
 import javax.microedition.lcdui.Alert;
 import javax.microedition.lcdui.AlertType;
