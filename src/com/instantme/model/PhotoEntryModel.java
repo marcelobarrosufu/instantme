@@ -32,6 +32,10 @@ public class PhotoEntryModel implements IEntry {
     public int size() {
         return data.size();
     }
+
+    public int historySize() {
+        return cursor.size();
+    }
     
     public PhotoEntry elementAt(int pos) {
         return (PhotoEntry) data.elementAt(pos);

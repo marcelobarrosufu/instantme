@@ -32,6 +32,10 @@ public class SplashScreen extends Canvas {
             logo = null;
         }
     }
+
+    protected void pointerPressed(int x, int y) {
+        super.pointerPressed(x, y);
+    }
     
     protected void paint(Graphics g) {
         

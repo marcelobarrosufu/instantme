@@ -9,13 +9,13 @@
  */
 package com.instantme.api;
 
+import com.instantme.entries.CommentEntry;
+import com.instantme.entries.FullUserEntry;
+import com.instantme.locales.Locale;
 import com.instantme.model.CommentEntryModel;
-import com.instantme.util.IAnimation;
 import com.instantme.model.PhotoEntryModel;
 import com.instantme.model.UserEntryModel;
-import com.instantme.entries.FullUserEntry;
-import com.instantme.entries.CommentEntry;
-import com.instantme.locales.Locale;
+import com.instantme.util.IAnimation;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -28,6 +28,8 @@ import org.json.me.JSONException;
 import org.json.me.JSONObject;
 
 public class InstagramAPI {
+    
+    //public String lastLog = "";
     
     private final String CLIENT_ID = "0dc7bd4b0bce48c08a4c6f5985d31e1a";
     private final String REDIRECT_URI = "file://client-token";
@@ -636,6 +638,7 @@ public class InstagramAPI {
         }
     }
     
+    
     private void updateCookies(HttpConnection connection) throws IOException {
         
         /*
@@ -647,6 +650,7 @@ public class InstagramAPI {
          character for values. The dirt fix below will solve the problem while
          instagram does not change the values inside cookies
          */
+        
         String cookieHeader = connection.getHeaderField("Set-Cookie");
         int fix = cookieHeader.indexOf("sessionid", 0);
         if(fix >= 0) {
@@ -671,9 +675,10 @@ public class InstagramAPI {
             index++;
         }  
         */
-    
+       
        if(cookieHeader != null) {
             if(cookieHeader.length() > 0) {
+                //lastLog = cookieHeader;
                 //println(cookieHeader);
                 Vector cookieList = split(cookieHeader,";");
                 for (int n = 0; n < cookieList.size(); n++) {

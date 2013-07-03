@@ -20,6 +20,7 @@ import com.instantme.util.BackStack;
 import com.instantme.util.DisplaySpecs;
 import com.instantme.util.IAnimation;
 import com.instantme.util.TaskHelper;
+import com.nokia.mid.ui.IconCommand;
 import java.io.IOException;
 import java.util.Vector;
 import javax.microedition.lcdui.Alert;
@@ -48,7 +49,7 @@ public class PhotoEntryForm extends Form implements CommandListener, ItemCommand
     private Command dlgCancel;
     private Command commentListOk;
     private Command backCommand;
-    private Command likeCommand;
+    private IconCommand likeCommand;
     private Command addComment;
     private Command delComment;
     private Command clearText;
@@ -77,6 +78,15 @@ public class PhotoEntryForm extends Form implements CommandListener, ItemCommand
         waitAnim = new WaitItem();
         deleteMap = new Vector();
         this.photoEntry = pe;
+        
+        Image image = null;        
+        try {
+            image = Image.createImage("/res/likeshb.png");
+            likeCommand = new IconCommand(Locale.getInst().getStr(Locale.LIKE_MENU), image, null, Command.OK, 0);
+        }
+        catch (Exception oe) {    
+            likeCommand = new IconCommand(Locale.getInst().getStr(Locale.LIKE_MENU), Command.OK, 0, IconCommand.ICON_OK);
+        }
         
         StringItem caption = new StringItem(pe.getFrom().getName() + " (" + pe.getDate().toString() + ")",pe.getCaption());
         Font f = Font.getFont(DisplaySpecs.FONT_DEFAULT, Font.STYLE_PLAIN, Font.SIZE_SMALL);
@@ -107,7 +117,7 @@ public class PhotoEntryForm extends Form implements CommandListener, ItemCommand
         this.append(comments);
                 
         backCommand = new Command(Locale.getInst().getStr(Locale.BACK_MENU), Command.BACK, 0); 
-        likeCommand = new Command(Locale.getInst().getStr(Locale.LIKE_MENU), Command.OK, 0); 
+        //likeCommand = new Command(Locale.getInst().getStr(Locale.LIKE_MENU), Command.OK, 0); 
         addComment = new Command(Locale.getInst().getStr(Locale.ADD_CMT_MENU), Command.ITEM, 0); 
         delComment = new Command(Locale.getInst().getStr(Locale.DEL_CMT_MENU), Command.ITEM, 1); 
         

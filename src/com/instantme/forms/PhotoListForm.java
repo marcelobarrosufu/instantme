@@ -9,21 +9,21 @@
  */
 package com.instantme.forms;
 
-import com.instantme.util.BackStack;
-import com.instantme.model.DataModel;
-import com.instantme.util.IAnimation;
-import com.instantme.util.IDetails;
-import com.instantme.api.InstagramAPI;
 import com.instantme.InstantME;
+import com.instantme.api.InstagramAPI;
 import com.instantme.entries.PhotoEntry;
-import com.instantme.model.PhotoEntryModel;
-import com.instantme.util.TaskHelper;
-import com.instantme.entries.UserEntry;
 import com.instantme.entries.TaskEntry;
-import com.instantme.items.PhotoItem;
+import com.instantme.entries.UserEntry;
 import com.instantme.items.AdImageItem;
+import com.instantme.items.PhotoItem;
 import com.instantme.items.WaitItem;
 import com.instantme.locales.Locale;
+import com.instantme.model.DataModel;
+import com.instantme.model.PhotoEntryModel;
+import com.instantme.util.BackStack;
+import com.instantme.util.IAnimation;
+import com.instantme.util.IDetails;
+import com.instantme.util.TaskHelper;
 import java.util.Random;
 import java.util.Vector;
 import javax.microedition.lcdui.Alert;
@@ -38,13 +38,15 @@ import javax.microedition.lcdui.ItemCommandListener;
 import javax.microedition.lcdui.StringItem;
 import javax.microedition.lcdui.TextBox;
 import javax.microedition.lcdui.TextField;
+import com.nokia.mid.ui.IconCommand;
+import com.nokia.mid.ui.LCDUIUtil;
 //import com.nokia.mid.ui.LCDUIUtil;
 
 public class PhotoListForm extends Form implements Runnable, IAnimation, IDetails, ItemCommandListener, CommandListener {
 
     private PhotoEntryModel model;
     private TextBox helpBox = null;
-    private Command updateCommand = new Command(Locale.getInst().getStr(Locale.UPDATE_MENU), Command.OK, 0);
+    private IconCommand updateCommand;// = new Command(Locale.getInst().getStr(Locale.UPDATE_MENU), Command.OK, 0);
     private Command olderCommand = new Command(Locale.getInst().getStr(Locale.OLDER_MENU), Command.ITEM, 1);
     private Command newerCommand = new Command(Locale.getInst().getStr(Locale.NEWER_MENU), Command.ITEM, 2);
     private Command friendsCommand = new Command(Locale.getInst().getStr(Locale.FRIENDS_MENU), Command.ITEM, 3);
@@ -68,6 +70,15 @@ public class PhotoListForm extends Form implements Runnable, IAnimation, IDetail
     public PhotoListForm(String title) {
         super(title);
         model = new PhotoEntryModel();
+
+        Image image = null;        
+        try {
+            image = Image.createImage("/res/refreshhb.png");
+            updateCommand = new IconCommand(Locale.getInst().getStr(Locale.UPDATE_MENU), image, null, Command.OK, 0);
+        }
+        catch (Exception oe) {    
+            updateCommand = new IconCommand(Locale.getInst().getStr(Locale.UPDATE_MENU), Command.OK, 0, IconCommand.ICON_OK);
+        }
 
         addCommand(updateCommand);
         addCommand(olderCommand);
@@ -94,12 +105,14 @@ public class PhotoListForm extends Form implements Runnable, IAnimation, IDetail
     public void updateList() {
         // TODO: fazer apenas o novo set do item, sem apagar
 
-        StringItem b1 = new StringItem("", Locale.getInst().getStr(Locale.NEWER_MENU), StringItem.BUTTON);
-        b1.setLayout(Item.LAYOUT_CENTER | Item.LAYOUT_EXPAND | Item.LAYOUT_NEWLINE_BEFORE);
-        b1.setDefaultCommand(newerCommand);
-        b1.setItemCommandListener(this);
-        append(b1);
-
+        if(model.historySize() > 1) {
+            StringItem b1 = new StringItem("", Locale.getInst().getStr(Locale.NEWER_MENU), StringItem.BUTTON);
+            b1.setLayout(Item.LAYOUT_CENTER | Item.LAYOUT_EXPAND | Item.LAYOUT_NEWLINE_BEFORE);
+            b1.setDefaultCommand(newerCommand);
+            b1.setItemCommandListener(this);
+            append(b1);
+        }
+        
         int numElements = model.size();
         Random r = new Random();
         int adPos = r.nextInt(numElements);
@@ -107,7 +120,7 @@ public class PhotoListForm extends Form implements Runnable, IAnimation, IDetail
             PhotoItem pe = new PhotoItem(model.elementAt(n), this);
             pe.setLayout(Item.LAYOUT_CENTER | Item.LAYOUT_EXPAND | Item.LAYOUT_NEWLINE_BEFORE);
             append(pe);
-            //LCDUIUtil.setObjectTrait(pe, "nokia.ui.s40.item.direct_touch",  Boolean.TRUE);
+            LCDUIUtil.setObjectTrait(pe, "nokia.ui.s40.item.direct_touch",  Boolean.TRUE);
             if(n == adPos) {
                 addAdv();
             }
@@ -137,7 +150,7 @@ public class PhotoListForm extends Form implements Runnable, IAnimation, IDetail
                 adItem.setImage(img);
                 adItem.setLabel(url);
                 append(adItem);
-                //LCDUIUtil.setObjectTrait(adItem, "nokia.ui.s40.item.direct_touch",  Boolean.TRUE);
+                LCDUIUtil.setObjectTrait(adItem, "nokia.ui.s40.item.direct_touch",  Boolean.TRUE);
             }
         }        
     }

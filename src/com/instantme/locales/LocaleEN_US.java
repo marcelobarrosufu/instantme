@@ -16,7 +16,7 @@ public class LocaleEN_US implements ILocale {
         "back", 
         "exit",
         "about",
-        "InstantME V1.0.3. Developed by Shining Bits.\nSupport: support@shiningbits.com",
+        "InstantME V1.0.4. Developed by Shining Bits.\nSupport: support@shiningbits.com",
         "update",
         "Wait",
         "Please, wait while the current operation is executed.",
@@ -103,7 +103,7 @@ public class LocaleEN_US implements ILocale {
             "It can be created from an Android phone or iPhone/iPad.\n\n" +
             "Using this account information, use the option 'login' to login into Instagram network.\n\n" +
             "You can navigate using the options 'older' or 'newer' and check your followers/following " +
-            "using the option 'friends'.\n\nYou account details is displayed using the option 'me'.\n\n" +
+            "using the option 'friends'.\n\nYour account details is displayed using the option 'me'.\n\n" +
             "Finally, the option 'update' shows what is new in your timeline."
         
     };
