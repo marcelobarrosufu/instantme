@@ -150,7 +150,11 @@ public class PhotoListForm extends Form implements Runnable, IAnimation, IDetail
                 adItem.setImage(img);
                 adItem.setLabel(url);
                 append(adItem);
-                LCDUIUtil.setObjectTrait(adItem, "nokia.ui.s40.item.direct_touch",  Boolean.TRUE);
+                try {
+                    LCDUIUtil.setObjectTrait(adItem, "nokia.ui.s40.item.direct_touch",  Boolean.TRUE);
+                } catch(Exception e) {
+                    System.out.println(e);
+                }
             }
         }        
     }
@@ -310,7 +314,9 @@ public class PhotoListForm extends Form implements Runnable, IAnimation, IDetail
     }
 
     public void start() {
-        insert(0, waitAnim);
+        BackStack bs = BackStack.getInstance();
+        insert(0,waitAnim);
+        bs.getCurrentDisplay().setCurrentItem(waitAnim);
         waitAnim.start();
     }
 

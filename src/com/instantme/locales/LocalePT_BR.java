@@ -16,7 +16,7 @@ public class LocalePT_BR implements ILocale {
         "voltar", 
         "sair",
         "sobre",
-        "InstantME V1.0.4. Desenvolvido por Shining Bits.\nSuporte: support@shiningbits.com",
+        "InstantME V1.0.5. Desenvolvido por Shining Bits.\nSuporte: support@shiningbits.com",
         "atualizar",
         "Aguarde",
         "Por favor, aguarde o final da operação.",

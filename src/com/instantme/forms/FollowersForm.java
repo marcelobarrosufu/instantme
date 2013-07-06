@@ -149,7 +149,9 @@ public class FollowersForm extends Form implements CommandListener, Runnable, IA
     }
 
     public void start() {
+        BackStack bs = BackStack.getInstance();
         insert(0,waitAnim);
+        bs.getCurrentDisplay().setCurrentItem(waitAnim);
         waitAnim.start();
     }
 

@@ -16,7 +16,7 @@ public class LocaleEN_US implements ILocale {
         "back", 
         "exit",
         "about",
-        "InstantME V1.0.4. Developed by Shining Bits.\nSupport: support@shiningbits.com",
+        "InstantME V1.0.5. Developed by Shining Bits.\nSupport: support@shiningbits.com",
         "update",
         "Wait",
         "Please, wait while the current operation is executed.",

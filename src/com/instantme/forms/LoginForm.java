@@ -148,7 +148,9 @@ public class LoginForm extends Form implements CommandListener, Runnable, IAnima
     }
     
     public void start() {
+        BackStack bs = BackStack.getInstance();
         insert(0,waitAnim);
+        bs.getCurrentDisplay().setCurrentItem(waitAnim);
         waitAnim.start();
     }
 

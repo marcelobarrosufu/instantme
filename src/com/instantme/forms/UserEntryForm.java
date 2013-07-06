@@ -155,7 +155,9 @@ public class UserEntryForm extends Form implements Runnable, IAnimation, Command
     }
     
     public void start() {
+        BackStack bs = BackStack.getInstance();
         insert(0,waitAnim);
+        bs.getCurrentDisplay().setCurrentItem(waitAnim);
         waitAnim.start();
     }
 

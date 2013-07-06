@@ -376,7 +376,9 @@ public class PhotoEntryForm extends Form implements CommandListener, ItemCommand
     }
     
     public void start() {
+        BackStack bs = BackStack.getInstance();
         insert(0,waitAnim);
+        bs.getCurrentDisplay().setCurrentItem(waitAnim);
         waitAnim.start();
     }
 

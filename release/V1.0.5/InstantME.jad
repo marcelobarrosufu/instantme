@@ -1,0 +1,12 @@
+IA-X-appID: ShiningBits_Instant40_Nokia
+MIDlet-1: InstantME,/res/instantme.png,com.instantme.InstantME
+MIDlet-Icon: /res/instantme.png
+MIDlet-Jar-Size: 180449
+MIDlet-Jar-URL: InstantME.jar
+MIDlet-Name: InstantME
+MIDlet-Permissions: javax.microedition.io.Connector.http, javax.microedition.io.Connector.https, javax.microedition.io.Connector.socket
+MIDlet-Vendor: Shining Bits
+MIDlet-Version: 1.0.5
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
+Nokia-MIDlet-App-Orientation: portrait
